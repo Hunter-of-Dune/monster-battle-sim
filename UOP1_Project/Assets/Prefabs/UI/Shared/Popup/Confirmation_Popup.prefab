@@ -708,12 +708,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f45cb552a054d379eac5cf341d2142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputReader: {fileID: 11400000, guid: 945ec0365077176418488737deed54be, type: 2}
+  CloseEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _titleText: {fileID: 2039863246}
   _descriptionText: {fileID: 1866803534}
   _buttonClose: {fileID: 4522327115018139732}
   _popupButton1: {fileID: 333038048474534334}
   _popupButton2: {fileID: 4860351073892375651}
-  _inputReader: {fileID: 11400000, guid: 945ec0365077176418488737deed54be, type: 2}
 --- !u!1 &6177104812845493700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,12 +1415,12 @@ PrefabInstance:
     - target: {fileID: 7745052901829238491, guid: b01383ebcda1049008a325f2ca7e6aca,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClosePopupButtonClicked
+      value: Close
       objectReference: {fileID: 0}
     - target: {fileID: 7745052901829238491, guid: b01383ebcda1049008a325f2ca7e6aca,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIPopupSetter, Assembly-CSharp
+      value: UIPopup, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7745052901829238491, guid: b01383ebcda1049008a325f2ca7e6aca,
         type: 3}

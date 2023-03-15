@@ -277,5 +277,13 @@ MonoBehaviour:
     m_Localized: '*You need to be near a pot to cook'
     m_Metadata:
       m_Items: []
+  - m_Id: 241063773771255808
+    m_Localized: MAP SELECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 241522404283240448
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -20,11 +20,8 @@ public class ContributerProfile
 	}
 }
 
-public class UICredits : MonoBehaviour
+public class UICredits : UIPopup
 {
-	public UnityAction OnCloseCredits;
-
-	[SerializeField] private InputReader _inputReader = default;
 	[SerializeField] private TextAsset _creditsAsset;
 	[SerializeField] private TextMeshProUGUI _creditsText = default;
 	[SerializeField] private UICreditsRoller _creditsRoller = default;
@@ -36,13 +33,8 @@ public class UICredits : MonoBehaviour
 
 	private void OnEnable()
 	{
-		_inputReader.MenuCloseEvent += CloseCreditsScreen;
+		_inputReader.MenuCloseEvent += Close;
 		SetCreditsScreen();
-	}
-
-	private void OnDisable()
-	{
-		_inputReader.MenuCloseEvent -= CloseCreditsScreen;
 	}
 
 	private void SetCreditsScreen()
@@ -52,10 +44,10 @@ public class UICredits : MonoBehaviour
 		_creditsRoller.StartRolling();
 	}
 
-	private void CloseCreditsScreen()
+	public new void Close()
 	{
+		base.Close();
 		_creditsRoller.OnRollingEnded -= EndRolling;
-		OnCloseCredits.Invoke();
 	}
 
 	private void FillCreditsRoller()

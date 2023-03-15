@@ -9,6 +9,7 @@ public class UIMainMenu : MonoBehaviour
 
 	public UnityAction NewGameButtonAction;
 	public UnityAction ContinueButtonAction;
+	public UnityAction MapSelectButtonAction;
 	public UnityAction SettingsButtonAction;
 	public UnityAction CreditsButtonAction;
 	public UnityAction ExitButtonAction;
@@ -36,6 +37,10 @@ public class UIMainMenu : MonoBehaviour
 		ContinueButtonAction.Invoke();
 	}
 
+	public void MapSelectButton()
+	{
+		MapSelectButtonAction.Invoke();
+	}
 	public void SettingsButton()
 	{
 		SettingsButtonAction.Invoke();

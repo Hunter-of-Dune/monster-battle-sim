@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
 	[Header("Scene UI")]
 	[SerializeField] private MenuSelectionHandler _selectionHandler = default;
-	[SerializeField] private UIPopup _popupPanel = default;
+	[SerializeField] private UIConfirmationPopup _popupPanel = default;
 	[SerializeField] private UIDialogueManager _dialogueController = default;
 	[SerializeField] private UIInventory _inventoryPanel = default;
 	[SerializeField] private UIInteraction _interactionPanel = default;
@@ -138,7 +138,7 @@ public class UIManager : MonoBehaviour
 
 	void OpenSettingScreen()
 	{
-		_settingScreen.Closed += CloseSettingScreen; // sub to close setting event with event 
+		_settingScreen.CloseEvent.AddListener(CloseSettingScreen); // sub to close setting event with event 
 
 		_pauseScreen.gameObject.SetActive(false); // Set pause screen to inactive
 
@@ -149,8 +149,8 @@ public class UIManager : MonoBehaviour
 
 	void CloseSettingScreen()
 	{
-		//unsub from close setting events 
-		_settingScreen.Closed -= CloseSettingScreen;
+		//unsub from close setting events
+		_settingScreen.CloseEvent.RemoveListener(CloseSettingScreen);
 
 		_selectionHandler.Unselect();
 		_pauseScreen.gameObject.SetActive(true); // Set pause screen to inactive
@@ -165,7 +165,7 @@ public class UIManager : MonoBehaviour
 	{
 		_pauseScreen.gameObject.SetActive(false); // Set pause screen to inactive
 
-		_popupPanel.ClosePopupAction += HideBackToMenuConfirmationPopup;
+		_popupPanel.CloseEvent.AddListener(HideBackToMenuConfirmationPopup);
 
 		_popupPanel.ConfirmationResponseAction += BackToMainMenu;
 
@@ -187,7 +187,7 @@ public class UIManager : MonoBehaviour
 	
 	void HideBackToMenuConfirmationPopup()
 	{
-		_popupPanel.ClosePopupAction -= HideBackToMenuConfirmationPopup;
+		_popupPanel.CloseEvent.AddListener(HideBackToMenuConfirmationPopup);
 		_popupPanel.ConfirmationResponseAction -= BackToMainMenu;
 
 		_popupPanel.gameObject.SetActive(false);

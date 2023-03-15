@@ -40,7 +40,7 @@ public enum SettingsType
 	Graphics,
 	Audio,
 }
-public class UISettingsController : MonoBehaviour
+public class UISettingsController : UIPopup
 {
 	[SerializeField] private UISettingsLanguageComponent _languageComponent;
 	[SerializeField] private UISettingsGraphicsComponent _graphicsComponent;
@@ -49,16 +49,14 @@ public class UISettingsController : MonoBehaviour
 	[SerializeField] private SettingsSO _currentSettings = default;
 	[SerializeField] private List<SettingsType> _settingTabsList = new List<SettingsType>();
 	private SettingsType _selectedTab = SettingsType.Audio;
-	[SerializeField] private InputReader _inputReader = default;
 	[SerializeField] private VoidEventChannelSO SaveSettingsEvent = default;
-	public UnityAction Closed;
 	private void OnEnable()
 	{
 		_languageComponent._save += SaveLaguageSettings;
 		_audioComponent._save += SaveAudioSettings;
 		_graphicsComponent._save += SaveGraphicsSettings;
 
-		_inputReader.MenuCloseEvent += CloseScreen;
+		_inputReader.MenuCloseEvent += Close;
 		_inputReader.TabSwitched += SwitchTab;
 
 		_settingTabFiller.FillTabs(_settingTabsList);
@@ -67,21 +65,15 @@ public class UISettingsController : MonoBehaviour
 		OpenSetting(SettingsType.Audio);
 
 	}
-	private void OnDisable()
+	private new void OnDisable()
 	{
-		_inputReader.MenuCloseEvent -= CloseScreen;
+		base.OnDisable();
 		_inputReader.TabSwitched -= SwitchTab;
 
 		_languageComponent._save -= SaveLaguageSettings;
 		_audioComponent._save -= SaveAudioSettings;
 		_graphicsComponent._save -= SaveGraphicsSettings;
 	}
-	public void CloseScreen()
-	{
-		Closed.Invoke();
-	}
-
-
 
 	void OpenSetting(SettingsType settingType)
 	{

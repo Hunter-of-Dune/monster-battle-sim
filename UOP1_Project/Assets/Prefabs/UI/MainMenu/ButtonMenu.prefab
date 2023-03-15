@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: MAP SELECT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe129390af88b40faa85c89db6820ea6, type: 2}
   m_sharedMaterial: {fileID: -5592514773993622969, guid: fe129390af88b40faa85c89db6820ea6,
@@ -225,9 +225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:457af5455987a4876acc4332c3a761e5
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 241063773771255808
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 1
@@ -370,7 +370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6506251814348512914}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIMainMenu, Assembly-CSharp
+        m_MethodName: MapSelectButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1494236524
 MonoBehaviour:
   m_ObjectHideFlags: 0
