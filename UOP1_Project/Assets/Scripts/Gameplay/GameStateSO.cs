@@ -23,36 +23,6 @@ public class GameStateSO : DescriptionBaseSO
 
 	[Header("Broadcasting on")]
 	[SerializeField] private BoolEventChannelSO _onCombatStateEvent = default;
-	
-	private List<Transform> _alertEnemies;
-
-	private void Start()
-	{
-		_alertEnemies = new List<Transform>();
-	}
-
-	public void AddAlertEnemy(Transform enemy)
-	{
-		if (!_alertEnemies.Contains(enemy))
-		{
-			_alertEnemies.Add(enemy);
-		}
-
-		UpdateGameState(GameState.Combat);
-	}
-
-	public void RemoveAlertEnemy(Transform enemy)
-	{
-		if (_alertEnemies.Contains(enemy))
-		{
-			_alertEnemies.Remove(enemy);
-
-			if (_alertEnemies.Count == 0)
-			{
-				UpdateGameState(GameState.Gameplay);
-			}
-		}
-	}
 
 	public void UpdateGameState(GameState newGameState)
 	{

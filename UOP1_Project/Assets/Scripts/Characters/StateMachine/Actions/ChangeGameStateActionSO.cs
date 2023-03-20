@@ -41,11 +41,11 @@ public class ChangeGameStateAction : StateAction
 		switch (_newGameState)
 		{
 			case GameState.Combat:
-				_gameStateSO.AddAlertEnemy(_transform);
+				//_gameStateSO.AddAlertEnemy(_transform);
 				break;
 
 			case GameState.Gameplay:
-				_gameStateSO.RemoveAlertEnemy(_transform);
+				//_gameStateSO.RemoveAlertEnemy(_transform);
 				break;
 
 			default:

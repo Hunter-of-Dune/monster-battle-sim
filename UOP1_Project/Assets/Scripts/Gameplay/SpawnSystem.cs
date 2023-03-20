@@ -11,7 +11,7 @@ public class SpawnSystem : MonoBehaviour
 	[SerializeField] private TransformEventChannelSO _playerInstantiatedChannel = default;
 	[SerializeField] private PathStorageSO _pathTaken = default;
 
-	[Header("Scene Ready Event")]
+	[Header("Receiving on")]
 	[SerializeField] private VoidEventChannelSO _onSceneReady = default; //Raised by SceneLoader when the scene is set to active
 
 	private LocationEntrance[] _spawnLocations;
